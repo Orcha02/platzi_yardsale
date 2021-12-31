@@ -204,6 +204,7 @@ nav {
   display: none;
 }
 div.mobile-menu {
+  width: 60vw;
   padding: 24px;
   display: none;
   position: absolute;
