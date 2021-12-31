@@ -14,6 +14,90 @@ body {
   font-family: "Quicksand", sans-serif;
 }
 
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.menu {
+  display: none;
+}
+
+.logo {
+  width: 150px;
+}
+.navbar-left {
+  display: flex;
+}
+
+.navbar-left ul {
+  margin-left: 12px;
+}
+
+.navbar-left ul li a,
+.navbar-right ul li a {
+  text-decoration: none;
+  color: var(--very-light-grey);
+  border: 1px solid var(--white);
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.navbar-left ul li a:hover,
+.navbar-right ul li a:hover {
+  color: var(--hospital-green);
+  border: 1px solid var(--hospital-green);
+}
+.navbar-left ul,
+.navbar-right .right-container {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+
+.navbar-email {
+  color: var(--very-light-grey);
+  font-size: var(--sm);
+  margin-right: 30px;
+}
+
+.email-arrow {
+  transform: rotate(90deg);
+}
+
+.navbar-shopping-cart {
+  position: relative;
+}
+
+.navbar-shopping-cart div {
+  width: 16px;
+  height: 16px;
+  background-color: var(--hospital-green);
+  border-radius: 50%;
+  font-size: var(--sm);
+  font-weight: bold;
+  position: absolute;
+  top: -6px;
+  right: -3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dropdown {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown:hover .desktop-menu {
+  display: block;
+}
+
 .cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
@@ -63,11 +147,15 @@ body {
 }
 
 .desktop-menu {
-  width: 100px;
+  display: none;
+  width: 108px;
   height: auto;
   border: 1px solid var(--very-light-grey);
   border-radius: 6px;
   padding: 20px 20px 0 20px;
+  position: absolute;
+  background-color: var(--text-input-field);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
 .desktop-menu ul {
@@ -102,9 +190,20 @@ body {
   display: inline-block;
 }
 
-.mobile-menu {
+.mobile {
+  display: none;
+}
+div.mobile-menu {
   padding: 24px;
   display: none;
+  position: absolute;
+  background-color: var(--text-input-field);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.nav-class:hover .mobile-menu {
+  display: block;
 }
 
 .mobile-menu a {
@@ -142,6 +241,10 @@ body {
   font-size: var(--sm);
 }
 @media (max-width: 640px) {
+  .menu,
+  .mobile {
+    display: block;
+  }
   .cards-container {
     grid-template-columns: repeat(auto-fill, 140px);
   }
@@ -158,5 +261,16 @@ body {
   }
   .mobile-menu {
     display: block;
+  }
+  .navbar-left ul {
+    display: none;
+  }
+  .dropdown:hover .desktop-menu {
+    display: none;
+  }
+  .navbar-email {
+    font-size: 10px;
+    align-self: flex-end;
+    margin-right: 10px;
   }
 }
